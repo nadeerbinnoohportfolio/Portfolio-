@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadeer Noohdheen | Creative Director</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F7F7F5;
+            --text: #1A1A1A;
+            --accent: #8A7968; /* Subtle gold/brown for premium vibe */
+            --muted: #666666;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            margin-left: 30px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            text-align: left;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero .subtitle {
+            font-size: 0.85rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        .hero .tagline {
+            font-size: 1.25rem;
+            max-width: 700px;
+            font-style: italic;
+            color: var(--text);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .about-text p {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.05rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .service-card {
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Work Section */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .work-card {
+            background: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+        .work-thumbnail {
+            height: 220px;
+            background: #EAE8E3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            position: relative;
+        }
+        .work-thumbnail::after {
+            content: "▶";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--text);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .work-card:hover .work-thumbnail::after {
+            transform: scale(1.1);
+        }
+        .work-info {
+            padding: 30px;
+        }
+        .role-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .work-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .work-info p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .work-link {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 3px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .work-link:hover {
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 120px 0;
+        }
+        .contact h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+        }
+        .contact p {
+            color: var(--muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .contact-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1rem;
+            transition: color 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+        .contact-links a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content { grid-template-columns: 1fr; gap: 20px; }
+            .work-grid { grid-template-columns: 1fr; }
+            .nav-links a { margin-left: 15px; font-size: 0.8rem; }
+            section { padding: 60px 0; }
+            .contact-links { gap: 20px; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">NADEER NOOHDHEEN</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#work">Work</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="subtitle">Creative Director · Ads · Digital Marketing · Film</div>
+            <h1>Building brand stories <br>that move.</h1>
+            <p class="tagline">"I live at the intersection of strong visual craft and clear commercial thinking — shaping how brands look, feel, and connect with their audience across screens."</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="about-content">
+                <div>
+                    <div class="section-label">Who I Am</div>
+                </div>
+                <div class="about-text">
+                    <p>I'm a creative director who builds brand stories that move — across ad films, digital campaigns, and short-form content.</p>
+                    <p>Jewellery and lifestyle branding is where my work feels most distinct: I bring a director's eye to every frame, while staying rooted in what actually drives engagement and recall. I've led creative for jewellery and healthcare brands — turning brand identity into campaigns that feel premium, intentional, and emotionally resonant.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="section-label">What I Do</div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Six things I bring to <br>every project.</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Ad Films & Campaigns</h3>
+                    <p>Directing ad films and brand campaigns that capture attention and tell compelling stories.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Digital Marketing Content</h3>
+                    <p>Creating reels, social-first videos, and campaign assets built for modern digital audiences.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Concept & Scripting</h3>
+                    <p>Developing core concepts and writing scripts that align with brand vision and commercial goals.</p>
+                </div>
+                <div class="service-card">
+                    <h3>On-Set Direction</h3>
+                    <p>Directing on set and shaping the visual styling to ensure every frame feels intentional.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Jewellery & Lifestyle</h3>
+                    <p>Telling brand stories for jewellery and lifestyle brands with a premium, heritage-focused touch.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Post-Production</h3>
+                    <p>Overseeing the final polish — edit, grade, and sound design to deliver a flawless final product.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work">
+            <div class="section-label">Signature Work</div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Selected Projects</h2>
+            <p style="color: var(--muted); margin-bottom: 50px; max-width: 600px;">Every brand has a different rhythm. Here is a selection of campaigns, reels, and films where I led the creative direction, scripting, and visual storytelling.</p>
+            
+            <div class="work-grid">
+                <!-- Project 1: Josco -->
+                <div class="work-card">
+                    <div class="work-thumbnail">Josco Jewellers</div>
+                    <div class="work-info">
+                        <div class="role-tag">Creative Direction · Concept · Script</div>
+                        <h3>Josco Jewellers Campaign</h3>
+                        <p>Built a visual language balancing tradition with a modern, premium feel for festive collection launches and digital-first content.</p>
+                        <a href="https://www.instagram.com/reel/DYW1TjolYVd/" class="work-link" target="_blank">Watch on Instagram →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Brand Ad Reels -->
+                <div class="work-card">
+                    <div class="work-thumbnail">Brand Ad Reels</div>
+                    <div class="work-info">
+                        <div class="role-tag">Director</div>
+                        <h3>Commercial Ad Reels</h3>
+                        <p>Directed high-engagement, social-first ad reels focused on strong visual craft and clear commercial thinking.</p>
+                        <a href="https://www.instagram.com/reel/DY4drDAFSuk/" class="work-link" target="_blank">Watch on Instagram →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Campaign Film -->
+                <div class="work-card">
+                    <div class="work-thumbnail">Campaign Film</div>
+                    <div class="work-info">
+                        <div class="role-tag">Director</div>
+                        <h3>Brand Campaign Film</h3>
+                        <p>Shaping how brands look, feel, and connect with their audience across screens with intentional visual styling.</p>
+                        <a href="https://www.instagram.com/reel/DZsFLoUiMpi/" class="work-link" target="_blank">Watch on Instagram →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Lifestyle Story -->
+                <div class="work-card">
+                    <div class="work-thumbnail">Visual Storytelling</div>
+                    <div class="work-info">
+                        <div class="role-tag">Director</div>
+                        <h3>Lifestyle & Brand Story</h3>
+                        <p>Translating brand identity into emotionally resonant stories that feel premium and purposeful.</p>
+                        <a href="https://www.instagram.com/reel/Da0MGRTlN1c/" class="work-link" target="_blank">Watch on Instagram →</a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Reel Series -->
+                <div class="work-card">
+                    <div class="work-thumbnail">Reel Series</div>
+                    <div class="work-info">
+                        <div class="role-tag">Director · Script</div>
+                        <h3>Serialized Content</h3>
+                        <p>Developed core concepts and wrote scripts for engaging, episodic short-form content built for digital audiences.</p>
+                        <a href="https://www.instagram.com/reel/DeE0gJTMydG/" class="work-link" target="_blank">Watch on Instagram →</a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Short Film -->
+                <div class="work-card">
+                    <div class="work-thumbnail">Short Film</div>
+                    <div class="work-info">
+                        <div class="role-tag">Director · Writer</div>
+                        <h3>Narrative Short Film</h3>
+                        <p>End-to-end storytelling, from writing the narrative to directing the final frame, focusing on human-centric themes.</p>
+                        <a href="https://youtu.be/SOiSceTuNpc?si=toSB9ceWCzkDZTqN" class="work-link" target="_blank">Watch on YouTube →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="section-label">Get in Touch</div>
+            <h2>Let's build a story <br>worth telling.</h2>
+            <p>If you're building a story worth telling, I'd love to hear it.</p>
+            <div class="contact-links">
+                <a href="mailto:nadeerbinnooh@gmail.com">nadeerbinnooh@gmail.com</a>
+                <a href="tel:+919567302199">+91 9567 302 199</a>
+                <a href="tel:+919961021992">+91 9961 021 992</a>
+                <a href="https://instagram.com/zer0_moula" target="_blank">Instagram</a>
+                <a href="https://linkedin.com/in/nadeer-bin-nooh" target="_blank">LinkedIn</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Nadeer Noohdheen. Creative Director.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
